@@ -7,7 +7,7 @@ I. Copy that repository on your pc:
   
 II. Use python scripts to create database of chess games between two AI chess engines, 
 test.pgn file wil be final output file which will be used further.
-  1) At first download chess engines from official website:
+  1) At first download chess engines from official websites:
   https://stockfishchess.org/download/
   https://komodochess.com/
   In my case I've used 32bit version of these engines
