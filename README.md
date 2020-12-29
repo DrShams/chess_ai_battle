@@ -23,9 +23,12 @@ test.pgn file wil be final output file which will be used further.
   
 III. Install https://golang.org/ and use goLang script to convert test.pgn to "youname".json file,
 Usage example:
-  - (terminal) go run . -f test.pgn -o test.json 
-or
+  - (terminal) go run . -f test.pgn -o test.json
+  
+  or
+
   - (terminal) go run pgnstats.go Gamestats.go Heatmap.go file.go movetrack.go openingmove.go getstats.go stats.go -f test.pgn -o test.json
+  
 (both variants are correct, Kludge: open test.json in your text editor and change "Openings" to "openings")
   - move that .json file in the previous (chess_ai_battle) folder
   - (terminal) cd chess_ai_battle
