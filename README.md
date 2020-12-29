@@ -8,9 +8,7 @@ I. Copy that repository on your pc:
 II. Use python scripts to create database of chess games between two AI chess engines, 
 test.pgn file wil be final output file which will be used further.
   1) At first download chess engines from official websites:
-  https://stockfishchess.org/download/
-  https://komodochess.com/
-  In my case I've used 32bit version of these engines
+  https://stockfishchess.org/download/ and https://komodochess.com/
   2) (terminal) py chess_to_db.py
   - in my case, here I used stockfish_20090216_32bit.exe and komodo-12.1.1-32bit.exe
   - Enter the number of chess game you want to store in database:
