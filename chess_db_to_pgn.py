@@ -4,7 +4,9 @@ conn = sqlite3.connect('chessdb.sqlite')
 cur = conn.cursor()
 cur.execute("SELECT id, white, white_score, black_score, black, moves, movcount, data from Parties")
 rows = cur.fetchall()
+count = 0
 for row in rows:
+    count+=1
     event = "[Event \"AI Battle\"]\n"
     site = "[Site \"Russia-Ufa\"]\n"
     date = "[Date \""+row[7]+"\"]\n"
@@ -23,3 +25,4 @@ for row in rows:
     x = event+site+date+id+white+black+result+moves
     print(x+"\n")
     print(x, file=open("test.pgn", "a+"), end="\n\n")
+print("In total there is",count,"games")
