@@ -1,7 +1,7 @@
 # Chess AI battle: komodo vs stockfish
 Simple algorithm to use:
 
-I. Copy that repository on your pc:
+## I. Copy that repository on your pc:
   1) (terminal) git clone https://github.com/DrShams/chess_ai_battle
   2) (terminal) cd chess_ai_battle
   
