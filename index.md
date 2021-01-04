@@ -5,7 +5,7 @@ Simple algorithm to use:
   1) (terminal) git clone https://github.com/DrShams/chess_ai_battle
   2) (terminal) cd chess_ai_battle
   
-II. Use python scripts to create database of chess games between two AI chess engines, 
+## II. Use python scripts to create database of chess games between two AI chess engines, 
 test.pgn file wil be final output file which will be used further.
   1) At first download chess engines from official websites:
   https://stockfishchess.org/download/ and https://komodochess.com/
@@ -21,7 +21,7 @@ test.pgn file wil be final output file which will be used further.
   - move test.pgn file to the pgnstats folder
   - (terminal) cd pgnstats
   
-III. Install https://golang.org/ and use goLang script to convert test.pgn to "youname".json file,
+## III. Install https://golang.org/ and use goLang script to convert test.pgn to "youname".json file,
 Usage example:
   - (terminal) go run . -f test.pgn -o test.json
   
@@ -33,14 +33,14 @@ Usage example:
   - move that .json file in the previous (chess_ai_battle) folder
   - (terminal) cd chess_ai_battle
   
-IV. Launch http-server being inside chess_ai_battle folder
+## IV. Launch http-server being inside chess_ai_battle folder
   1) install https://nodejs.org/en/
   2) (terminal) npm install http-server -g
   3) (terminal) http-server -p 8000 --cors
   (that launches http-server with open port 8000 with cross-origin resource sharing, it
   needs for bypass d3.json browser security function which are the part of chess_2.html file)
   
-V. Open chess_2.html file in your browser
+## V. Open chess_2.html file in your browser
 (here will be sunburst visualisation of all the games from PGN.file, you can use any PGN.file for that purpose)
 
 Notes:
