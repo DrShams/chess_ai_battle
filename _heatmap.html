@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="d3.v3.min.js" charset="utf-8"></script>
+    <link href="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.css" rel="stylesheet">
+</head>
+<body>
+  <div id="heatmap-example-1" class="cdv-heatmap"></div>
+  <div class="caption">World Rapid Chess Championship 2015, square utilization by white (how many times a piece landed on a square)</div>
+
+  <script src="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.min.js"></script>
+  <script>
+      d3.json('http://localhost:8000/test_old.json', function(err, data)
+      {
+        var heatmapExample1 = new ChessDataViz.HeatMap('#heatmap-example-1', null, data.heatmaps.squareUtilization);
+      });
+  </script>
+</body>
+</html>

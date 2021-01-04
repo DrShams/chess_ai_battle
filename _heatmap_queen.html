@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="d3.v3.min.js" charset="utf-8"></script>
+    <link href="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.css" rel="stylesheet">
+</head>
+<body>
+  <div id="heatmap-example-2" class="cdv-heatmap"></div>
+<div class="caption">
+  World Rapid Chess Championship 2015, checking squares of queens (how many times a queen delivered a check on a square)
+  <br>
+  <button id="w-btn" class="button button-primary">White Queens</button>
+  <button id="b-btn" class="button">Black Queens</button>
+</div>
+  <script src="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.min.js"></script>
+  <script>
+      d3.json('http://localhost:8000/test_old.json', function(err, data) {
+        var heatmapExample2 = new ChessDataViz.HeatMap('#heatmap-example-2', {
+          colorScale: ['cyan', 'gold'],
+          sizeScale: false,
+          accessor: {
+            color: 'w',
+            piece: 'q'
+          }
+        }, data.heatmaps.checkSquares);
+
+        var tip = d3.tip()
+          .attr('class', 'd3-tip')
+          .offset([25, -6])
+          .html(function(d) {
+            return d;
+          });
+
+        heatmapExample2.dispatch.on('mouseenter', tip.show);
+        heatmapExample2.dispatch.on('mouseleave', tip.hide);
+        heatmapExample2.dataContainer.call(tip);
+
+      	var wButton = d3.select('#w-btn');
+        var bButton = d3.select('#b-btn');
+
+        wButton.on('click', function() {
+          heatmapExample2.options({
+            accessor: {
+              color: 'w',
+              piece: 'q'
+            }
+          });
+
+          wButton.classed('button-primary', true);
+          bButton.classed('button-primary', false);
+        });
+
+        bButton.on('click', function() {
+          heatmapExample2.options({
+            accessor: {
+              color: 'b',
+              piece: 'q'
+            }
+          });
+
+          wButton.classed('button-primary', false);
+          bButton.classed('button-primary', true);
+        });
+      });
+  </script>
+</body>
+</html>

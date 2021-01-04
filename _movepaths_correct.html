@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="d3.v3.min.js" charset="utf-8"></script>
+    <link href="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.css" rel="stylesheet">
+</head>
+<body>
+  <div class="cdv-move-paths" id="movepaths"></div>
+  <div class="caption">Journey of the white queen's knight during World Rapid Chess Championship 2015.</div>
+
+  <script src="C:/Windows/System32/bower_components/chess-dataviz/dist/ChessDataViz.min.js"></script>
+  <script>
+      d3.json('http://localhost:8000/wrc.json', function(err, data)
+      {
+        var movePaths = new ChessDataViz.MovePaths('#movepaths', null, data.moves);
+      });
+  </script>
+</body>
+</html>
