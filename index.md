@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# Chess AI battle: komodo vs stockfish
+Simple algorithm to use:
 
-You can use the [editor on GitHub](https://github.com/DrShams/chess_ai_battle/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+I. Copy that repository on your pc:
+  1) (terminal) git clone https://github.com/DrShams/chess_ai_battle
+  2) (terminal) cd chess_ai_battle
+  
+II. Use python scripts to create database of chess games between two AI chess engines, 
+test.pgn file wil be final output file which will be used further.
+  1) At first download chess engines from official websites:
+  https://stockfishchess.org/download/ and https://komodochess.com/
+  2) (terminal) py chess_to_db.py
+  - in my case, here I used stockfish_20090216_32bit.exe and komodo-12.1.1-32bit.exe
+  - Enter the number of chess game you want to store in database:
+  - for instance: 100
+  - in the file chessdb.sqlite will be added 100 games with SAN notation of the games
+  - check https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
+  - in any time you can interrupt that script with Ctrl+C
+  3) (terminal) py chess_db_to_pgn.py
+  - that script converts games from database chessdb.sqlite to test.pgn file
+  - move test.pgn file to the pgnstats folder
+  - (terminal) cd pgnstats
+  
+III. Install https://golang.org/ and use goLang script to convert test.pgn to "youname".json file,
+Usage example:
+  - (terminal) go run . -f test.pgn -o test.json
+  
+  or
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  - (terminal) go run pgnstats.go Gamestats.go Heatmap.go file.go movetrack.go openingmove.go getstats.go stats.go -f test.pgn -o test.json
+  
+(both variants are correct, Kludge: open test.json in your text editor and change "Openings" to "openings")
+  - move that .json file in the previous (chess_ai_battle) folder
+  - (terminal) cd chess_ai_battle
+  
+IV. Launch http-server being inside chess_ai_battle folder
+  1) install https://nodejs.org/en/
+  2) (terminal) npm install http-server -g
+  3) (terminal) http-server -p 8000 --cors
+  (that launches http-server with open port 8000 with cross-origin resource sharing, it
+  needs for bypass d3.json browser security function which are the part of chess_2.html file)
+  
+V. Open chess_2.html file in your browser
+(here will be sunburst visualisation of all the games from PGN.file, you can use any PGN.file for that purpose)
 
-### Markdown
+Notes:
+- that project is incomplete so if you find some mistakes let me know
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DrShams/chess_ai_battle/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Contributions:
+- https://github.com/ebemunk/chess-dataviz
+- https://github.com/ebemunk/pgnstats
+- also huge thanks Fr3nch for making corrections and advices
